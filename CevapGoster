@@ -1,0 +1,44 @@
+private void loadAd()
+    {
+        RewardedInterstitialAd.load(this,
+                "ca-app-pub-8111112803010580/5593453821",
+                new AdRequest.Builder().build(),
+                new RewardedInterstitialAdLoadCallback() {
+                    @Override
+                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                        super.onAdFailedToLoad(loadAdError);
+                        Toast.makeText(context, "Reklam Yüklenemedi", Toast.LENGTH_SHORT).show();
+                        hakKazan.setClickable(true);
+                    }
+
+                    @Override
+                    public void onAdLoaded(@NonNull RewardedInterstitialAd rewardedInterstitialAd) {
+                        super.onAdLoaded(rewardedInterstitialAd);
+                        Toast.makeText(context, "Reklam Yükleniyor Lütfen bekleyiniz.", Toast.LENGTH_SHORT).show();
+                        rewardedInterstitialAd.show(Uygulama_oyun_sayfasi.this, Uygulama_oyun_sayfasi.this);
+                        Handler handler = new Handler();
+                        handler.postDelayed(new Runnable() {
+                            public void run() {
+                                if (a==0)
+                                {
+                                    TRbtn1.setBackground(getDrawable(R.drawable.true_answer));
+                                }
+                                else if (a==1)
+                                {
+                                    TRbtn2.setBackground(getDrawable(R.drawable.true_answer));
+                                }
+                                else if (a==2)
+                                {
+                                    TRbtn3.setBackground(getDrawable(R.drawable.true_answer));
+                                }
+                                else if (a==3)
+                                {
+                                    TRbtn4.setBackground(getDrawable(R.drawable.true_answer));
+                                }
+                                hakKazan.setClickable(true);
+                            }
+                        }, 5000);
+                    }
+                }
+        );
+    }
