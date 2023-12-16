@@ -1,0 +1,12 @@
+@Override
+            public void onClick(View v) {
+                btnBilgiSifirla.startAnimation(clickAnimation2);
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    public void run() {
+                        Intent i2=new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/ipuapp/?igshid=NzZhOTFlYzFmZQ%3D%3D"));
+                        startActivity(i2);
+                    }
+                }, 400);
+
+            }
