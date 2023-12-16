@@ -1,0 +1,19 @@
+textToSpeech = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int i) {
+
+                // if No error is found then only it will run
+                if(i!=TextToSpeech.ERROR){
+                    // To Choose language of speech
+                    textToSpeech.setLanguage(Locale.US);
+                }
+            }
+        });
+        Img_read.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Img_read.startAnimation(colorChangeAniömation);
+                textToSpeech.speak(txtTest_game_soru_ekrani.getText().toString(),TextToSpeech.QUEUE_FLUSH,null);
+                textToSpeech.setSpeechRate(0.8f);
+            }
+        });
